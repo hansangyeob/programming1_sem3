@@ -6,7 +6,8 @@ public class Main {
         //System.out.println(returnLargerNumber(12,14));
         //System.out.println(studentMark(22));
         //System.out.println(isItTriangle(4,4,4));
-        System.out.println(convertInto('s'));
+       // System.out.println(convertInto('s'));
+
 
 
 
@@ -54,6 +55,7 @@ public class Main {
      }
  }
  */
+    /*
 //3. Write a static method to convert 7 characters to full dates: m --> Monday, t -> Tuesday, h -> Thursday,  s ->Sunday, a -> Saturday. Input a character
 public static String convertInto(char letter){
 
@@ -72,5 +74,7 @@ public static String convertInto(char letter){
     }
 
     }
+     */
+
 }// Main class close
 
