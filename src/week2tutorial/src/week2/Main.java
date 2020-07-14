@@ -10,7 +10,9 @@ public class Main {
        // System.out.println(convertInto('s'));
         //oneToTen(); //Q 2.1
         //sumOneToTen(); //Q 2.2
-
+        //multipleTable(); //Q 2.3
+        //factorial(); //Q2.4
+            powerUp();
 
 
 
@@ -99,18 +101,38 @@ public static String convertInto(char letter){
 //        }
 //        System.out.println(sumN);
 //    }
-    public static int multipleTable(int n){
-        Scanner userInput = new Scanner (System.in);
-        System.out.println("Enter a number that you wish to see the multiple table");
 
-        int userInputNumber = userInput.nextInt();
-        while (userInputNumber!=0 && a<10){
-            int a = 0;
-            a++;
 
-             userInputNumber = userInputNumber
-        }
-    }
+    //Q2.3
 
+//        public static void multipleTable(){
+//        Scanner userInput = new Scanner (System.in);   //Create a Scanner object
+//        System.out.println("Enter a number that you wish to see the multiple table");
+//
+//        int n=0;
+//        int userInputNumber = userInput.nextInt(); //Read user input
+//        while (n<10){
+//        n++;
+//        int userInputResult = userInputNumber * n;
+//        System.out.println(userInputNumber+"*"+n+" ="+userInputResult); //Output user input
+//        }
+//    }
+   //Q 2.4 i dont know!!
+
+   //Q 2.5
+   public static void powerUp(){
+       Scanner userInput = new Scanner(System.in);
+       System.out.println("Enter your base");
+       int userInputNumberFirst = userInput.nextInt();
+
+       System.out.println("Enter your power");
+       int userInputNumberSecond = userInput.nextInt();
+
+       int p = userInputNumberFirst;
+       for (int i = 0; i < userInputNumberSecond -1; i++){
+           p *= userInputNumberFirst;
+       }
+       System.out.println(p);
+   }
 }// Main class close
 
