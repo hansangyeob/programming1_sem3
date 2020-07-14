@@ -1,4 +1,5 @@
 package week2;
+import java.util.Scanner; // import the Scanner class
 
 public class Main {
 
@@ -7,6 +8,8 @@ public class Main {
         //System.out.println(studentMark(22));
         //System.out.println(isItTriangle(4,4,4));
        // System.out.println(convertInto('s'));
+        //oneToTen(); //Q 2.1
+        //sumOneToTen(); //Q 2.2
 
 
 
@@ -75,6 +78,39 @@ public static String convertInto(char letter){
 
     }
      */
+
+// Q2.1
+
+//    public static void oneToTen(){
+//
+//        for(int n=1;n<11;n++){
+//            System.out.println("This is a "+n +"8th number");
+//        }
+//    }
+
+    //Q2.2
+
+//    public static void sumOneToTen(){
+//        int n =1;
+//        int sumN = 0;
+//        while(n<11){
+//            sumN = sumN+n;
+//            n++;
+//        }
+//        System.out.println(sumN);
+//    }
+    public static int multipleTable(int n){
+        Scanner userInput = new Scanner (System.in);
+        System.out.println("Enter a number that you wish to see the multiple table");
+
+        int userInputNumber = userInput.nextInt();
+        while (userInputNumber!=0 && a<10){
+            int a = 0;
+            a++;
+
+             userInputNumber = userInputNumber
+        }
+    }
 
 }// Main class close
 
