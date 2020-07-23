@@ -13,9 +13,6 @@ public class Main {
         //multipleTable(); //Q 2.3
         //factorial(); //Q2.4
             powerUp();
-
-
-
     }//main close
 
     /*
@@ -62,6 +59,7 @@ public class Main {
  */
     /*
 //3. Write a static method to convert 7 characters to full dates: m --> Monday, t -> Tuesday, h -> Thursday,  s ->Sunday, a -> Saturday. Input a character
+
 public static String convertInto(char letter){
 
     if( letter == 'm'){
@@ -125,7 +123,7 @@ public static String convertInto(char letter){
        System.out.println("Enter your base");
        int userInputNumberFirst = userInput.nextInt();
 
-       System.out.println("Enter your power");
+       System.out.println("Enter your \"P\"ower");
        int userInputNumberSecond = userInput.nextInt();
 
        int p = userInputNumberFirst;
