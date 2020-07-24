@@ -11,15 +11,13 @@ public class bankAccount {
         this.accountNumber = accountNumber;
         this.owner = owner;
         this.balance = balance;
-}
+    }
 
 
     //getter setting
     public String getAccountNumber(){
         return accountNumber;
     }
-
-
 
     public void setOwner(String owner) {
         this.owner = owner;
