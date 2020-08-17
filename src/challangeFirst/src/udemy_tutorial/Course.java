@@ -4,45 +4,41 @@ public class Course {
 
     private String code;
     private String name;
-    private int numberOfCredits;
+    private String number;
 
-    public void Course(){
-        //no params constructor
-        System.out.println("Initializing Course class");
-    }
 
-    public Course(String code, String name){
-//        constructor with params
+
+    public Course(String code,String name, String number){
+        System.out.println("Initalizing class Course");
         this.code = code;
         this.name = name;
-
-    }
-    public Course(String name){
-//        constructor with one param
-        this.name = name;
-
-    }
-    public String getCode() {
-        return code;
+        this.number = number;
     }
 
+    public Course(){
+
+    }
     public String getName() {
         return name;
-    }
-
-    public int getNumberOfCredits() {
-        return numberOfCredits;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setNumberOfCredits(int numberOfCredits) {
-        this.numberOfCredits = numberOfCredits;
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }
