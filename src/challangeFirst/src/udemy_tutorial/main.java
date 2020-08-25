@@ -9,8 +9,7 @@ public class main {
         for(int i = 0; i<myInteger.length; i++){
             System.out.println("element" + i + ", typed value was"+ myInteger[i]);
         }
-
-        System.out.println("The average is" + getAverage(myInteger));
+       // System.out.println("The average is" + getAverage(myInteger));
     }
 
     public static int[] getIntegers(int numbers){
@@ -19,15 +18,15 @@ public class main {
         for(int i=0;i< values.length;i++){
             values [i] = scanner.nextInt();
         }
-
         return values;
     }
 
-    public static double getAverage(int[] array){
-        int sum = 0;
-        for(int i=0; i<array.length; i++){
-            sum += array[i];
-        }
-        return (double) sum/(double)array.length;
-    }
+
+//    public static double getAverage(int[] array){
+//        int sum = 0;
+//        for(int i=0; i<array.length; i++){
+//            sum += array[i];
+//        }
+//        return (double) sum/(double)array.length;
+//    }
 }
