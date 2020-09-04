@@ -23,6 +23,9 @@ public class Inter {
         this.potential = potential;
     }
 
+    public int getIdInter() {
+        return idInter;
+    }
     public String getCustomerId() {
         return customerId;
     }
@@ -31,9 +34,7 @@ public class Inter {
         return dateOfInteraction;
     }
 
-    public int getIdInter() {
-        return idInter;
-    }
+
 
     public String getPotential() {
         return potential;
@@ -43,7 +44,7 @@ public class Inter {
         return reference;
     }
 
-    public void setcustomerId(String customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
@@ -76,9 +77,9 @@ public class Inter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter date of interaction: ");
         String birthDay = scanner.nextLine();
-        SimpleDateFormat sdf =new SimpleDateFormat("dd/MM/yy");
-        Date date = sdf.parse(birthDay);
-        sdf.format(date);
+        SimpleDateFormat sdfInter =new SimpleDateFormat("dd/MM/yy");
+        Date date = sdfInter.parse(birthDay);
+        sdfInter.format(date);
         this.setDateOfInteraction(date);
     }
 
@@ -86,7 +87,7 @@ public class Inter {
     public void inputCustomerId(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter customer Id:");
-        this.setcustomerId(scanner.nextLine());
+        this.setCustomerId(scanner.nextLine());
     }
 
     //input reference
@@ -94,6 +95,7 @@ public class Inter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter reference of user: ");
         this.setReference(scanner.nextLine());
+
     }
 
     //input potential
@@ -105,8 +107,9 @@ public class Inter {
 
 
     //
-    public static Lead displayInterInfo(){
-        System.out.printf("lead_%03d,%s,%tF,%b,%s,%s,%s%n",this.getIdInter(),getDateOfInteraction(),getCustomerId(),getReference(),getPotential());
+    public Inter displayInterInfo(){
+        System.out.printf("inter_%03d,%s,%tF,%b,%s,%s,%s%n",this.getIdInter(),this.getCustomerId(),this.getDateOfInteraction(),
+                this.getReference(), this.getPotential());
         return null;
     }
 
