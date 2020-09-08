@@ -3,6 +3,7 @@ package udemy;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Customer {
     private static ArrayList<Customer> customers = new ArrayList<>();
 
