@@ -1,0 +1,57 @@
+package udemy;
+
+import java.util.ArrayList;
+
+public class SalesPeople {
+
+    private ArrayList<Interaction> interactions = new ArrayList<>();
+
+    public ArrayList<Interaction> getInteractions() {
+        return interactions;
+    }
+
+    public boolean addInteraction(Interaction interaction){
+        return interactions.add(interaction);
+    }
+
+    public void deleteInteraction(String interactionId){
+        for (int i = 0; i < interactions.size(); i++) {
+            if(interactionId.equals(interactions.get(i).getId())){
+                interactions.remove(interactions.get(i));
+            }
+        }
+        System.out.println("deleted interaction of " + interactionId);
+    }
+
+    public void updateInteraction(String interactionId, String updateTarget, String newInfo){
+        for (int i = 0; i < interactions.size(); i++) {
+            if(interactionId.equals(interactions.get(i).getId())){
+                // fine value to modify
+                Interaction inter = interactions.get(i);
+
+                switch (updateTarget){
+                    case "date" : {
+                        inter.setDateOfInteraction(newInfo);
+                        break;
+                    }
+                    case "method" : {
+                        inter.setInteractionMethod(newInfo);
+                        break;
+                    }
+                    case "potential":{
+                        inter.setPotential(newInfo);
+                        break;
+                    }
+
+                }
+            }
+        }
+        System.out.println("updated interaction of " + interactionId);
+    }
+
+    public void printAllInteractions(){
+        for (int i = 0; i < interactions.size(); i++) {
+            System.out.println(interactions.get(i));
+        }
+    }
+}
