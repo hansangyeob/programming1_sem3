@@ -1,5 +1,6 @@
 package model;
 
+
 import java.util.Date;
 
 public class Customer {
@@ -7,6 +8,7 @@ public class Customer {
     private String id;
     private String name;
     private String dateOfBirth;
+    private Date dateOfBirthInDate; // saving date as a form of "date"
     private String gender;
     private String phoneNumber;
     private String email;
@@ -18,6 +20,14 @@ public class Customer {
 
     public String getId() {
         return id;
+    }
+
+    public Date getDateOfBirthInDate() {
+        return dateOfBirthInDate;
+    }
+
+    public void setDateOfBirthInDate(Date dateOfBirthInDate) {
+        this.dateOfBirthInDate = dateOfBirthInDate;
     }
 
     public String getName() {

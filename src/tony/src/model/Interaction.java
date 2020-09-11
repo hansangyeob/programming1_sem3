@@ -1,12 +1,11 @@
 package model;
 
-import java.util.Date;
 
 public class Interaction {
 
     private String id;
-    private Date dateOfInteraction;
-//    private String dateOfInteraction;
+
+    private String dateOfInteraction;
     private Customer customer;
     private String interactionMethod;
     private String potential;
@@ -19,7 +18,7 @@ public class Interaction {
         this.id = id;
     }
 
-    public void setDateOfInteraction(Date dateOfInteraction) {
+    public void setDateOfInteraction(String dateOfInteraction) {
         this.dateOfInteraction = dateOfInteraction;
     }
 
@@ -40,7 +39,7 @@ public class Interaction {
     }
 //    public String getDateOfInteraction() { return dateOfInteraction; }
 
-    public Date getDateOfInteraction() {
+    public String getDateOfInteraction() {
         return dateOfInteraction;
     }
 

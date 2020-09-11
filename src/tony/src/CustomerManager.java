@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
-import java.util.Calendar;
+
 import java.util.Date;
 import java.util.Scanner;
 
@@ -82,15 +82,11 @@ public class CustomerManager {
                 case "dob": {
                     System.out.print("Enter new date of birth(dd-MMM-yyyy) : ");
 
-                    Scanner scanner = new Scanner(System.in);
-                    //String newDateString = new Scanner(System.in).nextLine();
-                    //String date = scanner.next();
                     String date = new Scanner(System.in).nextLine();
 
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                     SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd-MMM-yyyy");
 
-                   // String finalDate = customerInfoInput.nextLine();
 
                     Date dDate = dateFormat.parse(date);
                     String strOutputDate = dateFormat2.format(dDate);
@@ -104,17 +100,7 @@ public class CustomerManager {
                     break;
                 }
                 case "gender": {
-//                    System.out.print("Enter new gender : ");
-//                    String newGender = new Scanner(System.in).nextLine();
-//                    boolean isValid = InputValidator.getInstance().validateGender(newGender);
-//                    if(isValid){
-//                        customer.setGender(newGender);
-//                    }else{
-//                        System.out.println("Invalid form. Please Type '0' or '1'.");
-//                    }
-//                    break;
                     newInfo = updateInfoPrompt(target);
-                    //                  customer.setGender(newInfo);
                     boolean isValid = InputValidator.getInstance().validateGender(newInfo);
                     if (isValid) {
                         JOptionPane.showMessageDialog(null, "valid form!");
@@ -127,18 +113,7 @@ public class CustomerManager {
                 }
 
                 case "phone": {
-//                    System.out.print("Enter new phone number : ");
-//                    String newPhone = new Scanner(System.in).nextLine();
-//
-//                    boolean isValid = InputValidator.getInstance().validatePhoneNumber(newPhone);
-//                    if(isValid){
-//                        customer.setPhoneNumber(newPhone);
-//                    }else{
-//                        System.out.println("Invalid Phone Number !");
-//                    }
-//                    break;
                     newInfo = updateInfoPrompt(target);
-                    //customer.setName(newInfo);
                     boolean isValid = InputValidator.getInstance().validatePhoneNumber(newInfo);
                     if (isValid) {
                         JOptionPane.showMessageDialog(null, "valid form!");
@@ -151,18 +126,8 @@ public class CustomerManager {
                 }
 
                 case "email": {
-//                    System.out.print("Enter new email : ");
-//                    String newEmail = new Scanner(System.in).nextLine();
-//
-//                    boolean isValid = InputValidator.getInstance().validateEmail(newEmail);
-//                    if(isValid){
-//                        customer.setEmail(newEmail);
-//                    }else{
-//                        System.out.println("Invalid Email!");
-//                    }
-//                    break;
                     newInfo = updateInfoPrompt(target);
-                    //   customer.setName(newInfo);
+
                     boolean isValid = InputValidator.getInstance().validateEmail(newInfo);
                     if (isValid) {
                         JOptionPane.showMessageDialog(null, "valid form!");
@@ -174,15 +139,7 @@ public class CustomerManager {
                 }
 
                 case "addr": {
-//                    System.out.print("enter new address : ");
-//                    String newAddr = new Scanner(System.in).nextLine();
-//                    boolean isValid = InputValidator.getInstance().validateAddress(newAddr);
-//                    if(isValid){
-//                        customer.setAddress(newAddr);
-//                    }else{
-//                        System.out.println("Invalid address form!");
-//                    }
-//                    break;
+
                     newInfo = updateInfoPrompt(target);
                     //   customer.setName(newInfo);
                     boolean isValid = InputValidator.getInstance().validateAddress(newInfo);
@@ -239,84 +196,48 @@ public class CustomerManager {
         return new Scanner(System.in).nextLine();
     }
 
-//    public void reportCustomerAge() throws ParseException {
-//
-//        for (int i = 0; i < customers.size(); i++) {
-//            Date l = LocalDate.parse(customers.get(i).getDateOfBirth());
-//            LocalDate now = LocalDate.now(); //gets localDate
-//            Period diff = Period.between(l, now); //difference between the dates is calculated
-//
-//
-//            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
-//            Date d = sdf.parse(String.valueOf(diff));
-//
-//            Calendar c = Calendar.getInstance();
-//            c.setTime(d);
-//            int year = c.get(Calendar.YEAR);
-//            int month = c.get(Calendar.MONTH) + 1;
-//            int date = c.get(Calendar.DATE);
-//            LocalDate l1 = LocalDate.of(year, month, date);
-//            LocalDate now1 = LocalDate.now();
-//            Period diff1 = Period.between(l, now1);
-//            System.out.println("age:" + diff.getYears() + "years");
-//          }
-//            int oneToTen = diff.getYears();
-//            int tenToTwenty = diff.getYears();
-//            int twentyToSixty = diff.getYears();
-//            int overSixty = diff.getYears();
-//
-//            if (diff.getYears() < 10) {
-//                oneToTen += 1;
-//            } else if (diff.getYears() < 20) {
-//                tenToTwenty += 1;
-//            } else if (diff.getYears() < 60) {
-//                twentyToSixty += 1;
-//            } else if (overSixty >= 60) {
-//                overSixty += 1;
-//            }
-//
-//            System.out.println("1~10 : \n" + oneToTen+
-//                                "10~20 \n:" + tenToTwenty+
-//                                "20~60 \n: " + twentyToSixty+
-//                                "60~ : \n" + overSixty);
-//        }
 
-    //calculate user age
-    public static int calculateAge(LocalDate birthday, LocalDate currentDate){
-        if((birthday !=null)&&(currentDate!=null)){
-            return Period.between(birthday,currentDate).getYears();
-        }else{
-            return 0;
+
+    public void reportCustomerAge() throws ParseException {
+       int oneToTen = 0;
+        int tenToTwenty = 0;
+        int twentyToSixty = 0;
+        int overSixty = 0;
+
+        for (int i = 0; i < customers.size(); i++) {
+            Date l = getCustomers().get(i).getDateOfBirthInDate();
+            Date currentTime = new Date();  //gets localDate
+
+            long diffInDays = (currentTime.getTime()- l.getTime())/(1000*60*60*24);
+            long isAge = diffInDays/365;
+
+            if(isAge<10){
+                oneToTen=+1;
+            }else if(isAge <= 20){
+               tenToTwenty=+1;
+            }else if(isAge <= 60){
+                twentyToSixty=+1;
+            }else {
+                overSixty=+1;
+            }
+
         }
+
+        System.out.println(   " CUSTOMER AGE STATISTIC "+
+                       "\n================"+
+                       "\n1~10  : " + oneToTen +
+                       "\n10~20 : " + tenToTwenty+
+                        "\n20~60 : " + twentyToSixty+
+                        "\n60~   : " + overSixty);
     }
 
-//    public void reportAge(){
-//
-//        for (int i = 0; i < customers.size(); i++) {
-//            Date l = customers.get(i).getDateOfBirth();
-//            Date now = new Date("09/10/2020"); //gets localDate
-//            Date current = new Date(); // current time
-//            System.out.println(current.getTime());
-//
-//            calculateAge(l,current);
-//
-//
-//            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
-//            Date d = sdf.parse(String.valueOf(diff));
-//
-//            Calendar c = Calendar.getInstance();
-//            c.setTime(d);
-//            int year = c.get(Calendar.YEAR);
-//            int month = c.get(Calendar.MONTH) + 1;
-//            int date = c.get(Calendar.DATE);
-//            LocalDate l1 = LocalDate.of(year, month, date);
-//            LocalDate now1 = LocalDate.now();
-//            Period diff1 = Period.between(l, now1);
-//            System.out.println("age:" + diff.getYears() + "years");
-//          }
-//
-//    }
-    }
+}
+
+
+
+
+
+
 
 
 

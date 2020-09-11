@@ -2,6 +2,7 @@ import model.Customer;
 import model.Interaction;
 import utils.InputValidator;
 
+import java.lang.reflect.Parameter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,7 +34,7 @@ public class SalesPeople{
         return false;
     }
 
-    public boolean updateInteraction(String interactionId){
+    public boolean updateInteraction(String interactionId) throws ParseException {
 
         printInteractionUpdateManual();
 
@@ -58,39 +59,23 @@ public class SalesPeople{
                 switch (target) {
                     case "date": {
 
-                        System.out.print("Enter new date of birth(MM/DD/YYYY) : ");
-
-                        Scanner scanner = new Scanner(System.in);
-                        //String newDateString = new Scanner(System.in).nextLine();
-                        //String date = scanner.next();
+                        System.out.print("Enter new date of birth(dd-mm-yyyy) : ");
                         String date = new Scanner(System.in).nextLine();
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                        Date date2 = null;
-                        try{
-                            date2 = dateFormat.parse(date);
-                        }catch(ParseException e){
-                            e.printStackTrace();
-                        }
 
-                        boolean isValid = InputValidator.getInstance().validateBirthDay(date);
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                        SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd-MMM-yyyy");
+
+                        Date dDate = dateFormat.parse(date);
+                        String strOutputDate = dateFormat2.format(dDate);
+
+                        boolean isValid = InputValidator.getInstance().validateBirthDay(strOutputDate);
                         if (isValid) {
-                            inter.setDateOfInteraction(date2);
+                            inter.setDateOfInteraction(strOutputDate);
                         } else {
                             System.out.println("Invalid birthday form!");
                         }
                         break;
 
-
-//                        newInfo = updateInfoPrompt(target);
-//                        inter.setDateOfInteraction(newInfo);
-//
-//                        boolean isValid = InputValidator.getInstance().validateBirthDay(newInfo);
-//                        if(isValid){
-//                            inter.setDateOfInteraction(newInfo);
-//                        }else{
-//                            System.out.println("Invalid birthday form!");
-//                        }
-//                        break;
                     }
 
                     case "method": {

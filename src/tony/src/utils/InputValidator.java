@@ -1,13 +1,7 @@
 package utils;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.text.ParseException;
-
 
 public class InputValidator {
     // using "Singleton pattern"
@@ -32,15 +26,7 @@ public class InputValidator {
     private final String addressRegex = "\\d+\\s+([a-zA-Z]+|[a-zA-Z]+\\s[a-zA-Z]+)";
 
     public boolean validateName(String name) {
-//            // Check if user input is 'null'
-//        if (name.trim().equals("")) {
-//            return true;
-//        } else {
-//            //using "compile" to provide method for finding pattern
-//            Pattern pattern = Pattern.compile(nameRegex);
-//            Matcher matcher = pattern.matcher(name);
-//            return matcher.matches();
-//        }
+
         if (name.trim().equals("")) {
             return true;
         } else {
@@ -51,14 +37,10 @@ public class InputValidator {
     }
 
     public boolean validateEmail(String email) {
-//        if (email.trim().equals("")) {
-//            return true;
-//        } else {
         Pattern pattern = Pattern.compile(emailRegex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-//    }
 
     public boolean validatePhoneNumber(String phoneNumber) {
         if (phoneNumber.trim().equals("")) {
@@ -113,24 +95,4 @@ public class InputValidator {
     }
 
 }
-//        else {
-//             //Set preferred date format
-//            //For example MM-dd-yyyy, MM.dd.yyyy,dd.MM.yyyy etc.
-//            SimpleDateFormat sdfrmt = new SimpleDateFormat("MM/dd/yyyy");
-//            sdfrmt.setLenient(false);
-//            // Create Date object
-//              //parse the string into date
-//            try {
-////                Date javaDate = sdfrmt.parse(strDate);
-//                System.out.println(strDate + " is valid date format");
-//                System.out.println("press '0' to finish this process.");
-//            }
-//
-//            catch (ParseException e) {
-//                System.out.println(strDate + " is Invalid Date format");
-//                return false;
-//            }
-//            return true;
-//        }
 
-//    }
