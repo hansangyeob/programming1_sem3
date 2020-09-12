@@ -166,13 +166,34 @@ public class CustomerManager {
         return true;
     }
 
+    public void askUserForDelete(){
+
+
+
+    }
+
+//    public boolean deleteCustomer(String customerId) {
+//        Customer customer = getCustomerById(customerId);
+//        if (customer == null) {
+//            return false;
+//        } else
+//            return customers.remove(customer);
+//    }
+
     public boolean deleteCustomer(String customerId) {
         Customer customer = getCustomerById(customerId);
+        Scanner scanner = new Scanner(System.in);
+
         if (customer == null) {
             return false;
-        } else {
-            return customers.remove(customer);
+        }else if(customer !=null){
+            System.out.println("Type 'y' to delete lead_id from the list.");
+            String deleteConfirm = scanner.next();
+            if (deleteConfirm =="y") {
+                return true;
+            }
         }
+       return customers.remove(customer);
     }
 
     public Customer printAllCustomers() {
