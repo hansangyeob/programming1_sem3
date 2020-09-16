@@ -72,17 +72,40 @@ public class InputValidator {
         }
     }
 
-
-    public boolean validatePotential(String method) {
-        while (method == "P") {
-            System.out.println("Your method have been changed successfully.");
-            if (method == "NEU") {
-                if (method == "NEG") {
-                    System.out.println("Your method have been changed successfully.");
-                }
-            }
+    public boolean validateMethod(String method){
+        if(method.trim().equals("")){
+            return true;
+        }else if(method.matches("sns|email| telephone|face to face")){
+            return true;
+        }else if (method.matches("SNS|EMAIL|TELEPHONE|FACE TO FACE")){
+            return true;
+        }else{
+            return false;
         }
-        return true;
+
+    }
+
+
+    public boolean validatePotential(String potential) {
+//        if (method == "P") {
+//            System.out.println("Your method have been changed successfully.");
+//            if (method == "NEU") {
+//                if (method == "NEG") {
+//                    System.out.println("Your method have been changed successfully.");
+//                } else{
+//                    System.out.println("wrong input!");
+//                }
+//            }
+//        }
+//        return true;
+
+        if (potential.matches("P|NEU|NEG")){
+            return true;
+        }else if(potential.matches("p|neu|neg")){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public boolean validateBirthDay(String strDate) {

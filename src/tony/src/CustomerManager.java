@@ -57,9 +57,11 @@ public class CustomerManager {
             switch (target) {
                 case "name": {
                     newInfo = updateInfoPrompt(target);
-                    //                customer.setName(newInfo);
+                    //customer.setName(newInfo);
+
                     boolean isValid = InputValidator.getInstance().validateName(newInfo);
                     if (isValid) {
+
                         JOptionPane.showMessageDialog(null, "valid form!");
                         customer.setName(newInfo);
                     } else {

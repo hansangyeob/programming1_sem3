@@ -96,7 +96,7 @@ public class SalesPeople{
                         newInfo = updateInfoPrompt(target);
                         inter.setInteractionMethod(newInfo);
                         //inter= interactions.getId
-                        Boolean isValid = InputValidator.getInstance().validateAddress(newInfo);
+                        Boolean isValid = InputValidator.getInstance().validateMethod(newInfo);
                         if(isValid){
                             JOptionPane.showMessageDialog(null,"valid form!");
                             inter.setPotential(newInfo);
@@ -109,7 +109,7 @@ public class SalesPeople{
 
                     case "potential": {
                         newInfo = updateInfoPrompt(target);
-                        inter.setPotential(newInfo);
+                        //inter.setPotential(newInfo);
                         Boolean isValid = InputValidator.getInstance().validatePotential(newInfo);
                         if(isValid){
                             JOptionPane.showMessageDialog(null,"valid form!");
