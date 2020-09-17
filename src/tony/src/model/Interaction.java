@@ -1,11 +1,14 @@
 package model;
 
 
+import java.util.Date;
+
 public class Interaction {
 
     private String id;
 
     private String dateOfInteraction;
+    private Date dateOfInteractionInDate;
     private Customer customer;
     private String interactionMethod;
     private String potential;
@@ -53,6 +56,14 @@ public class Interaction {
 
     public String getPotential() {
         return potential;
+    }
+
+    public Date getDateOfInteractionInDate() {
+        return dateOfInteractionInDate;
+    }
+
+    public void setDateOfInteractionInDate(Date dateOfInteractionInDate) {
+        this.dateOfInteractionInDate = dateOfInteractionInDate;
     }
 
     @Override

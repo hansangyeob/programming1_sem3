@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Customer {
 
+
     private String id;
     private String name;
     private String dateOfBirth;
@@ -81,7 +82,6 @@ public class Customer {
     public void setAddress(String address) {
         this.address = address;
     }
-
 
     @Override
     public String toString() {

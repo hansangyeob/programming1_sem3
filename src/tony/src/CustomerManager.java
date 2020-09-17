@@ -1,8 +1,10 @@
 import model.Customer;
 import model.Interaction;
 import utils.InputValidator;
+import utils.LeadsFile;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -57,11 +59,9 @@ public class CustomerManager {
             switch (target) {
                 case "name": {
                     newInfo = updateInfoPrompt(target);
-                    //customer.setName(newInfo);
-
+                    //                customer.setName(newInfo);
                     boolean isValid = InputValidator.getInstance().validateName(newInfo);
                     if (isValid) {
-
                         JOptionPane.showMessageDialog(null, "valid form!");
                         customer.setName(newInfo);
                     } else {
@@ -169,9 +169,6 @@ public class CustomerManager {
     }
 
     public void askUserForDelete(){
-
-
-
     }
 
 //    public boolean deleteCustomer(String customerId) {
@@ -191,14 +188,23 @@ public class CustomerManager {
         }else if(customer !=null){
             System.out.println("Type 'y' to delete lead_id from the list.");
             String deleteConfirm = scanner.next();
-            if (deleteConfirm =="y") {
+            if (deleteConfirm.equals("y")) {
                 return true;
             }
         }
-       return customers.remove(customer);
+        return customers.remove(customer);
     }
-
-    public Customer printAllCustomers() {
+    //Method to print Customers to file and console by using an array to store data.
+    public Customer printAllCustomers() throws IOException {
+        try{
+            //Create new leads file
+            LeadsFile leadsFile = new LeadsFile();
+            // After enter customer information press saved to update the latest
+            leadsFile.saveCustomerToFile(customers.get(customers.size()-1));
+        }catch (IndexOutOfBoundsException e){
+            System.out.println("Please run again! Do not save when there is no user!");
+        }
+        // print customers on display
         for (int i = 0; i < customers.size(); i++) {
             System.out.println(customers.get(i));
         }
@@ -222,7 +228,7 @@ public class CustomerManager {
 
 
     public void reportCustomerAge() throws ParseException {
-       int oneToTen = 0;
+        int oneToTen = 0;
         int tenToTwenty = 0;
         int twentyToSixty = 0;
         int overSixty = 0;
@@ -237,7 +243,7 @@ public class CustomerManager {
             if(isAge<10){
                 oneToTen=+1;
             }else if(isAge <= 20){
-               tenToTwenty=+1;
+                tenToTwenty=+1;
             }else if(isAge <= 60){
                 twentyToSixty=+1;
             }else {
@@ -246,13 +252,14 @@ public class CustomerManager {
 
         }
 
-        System.out.println(   " CUSTOMER AGE STATISTIC "+
-                       "\n================"+
-                       "\n1~10  : " + oneToTen +
-                       "\n10~20 : " + tenToTwenty+
-                        "\n20~60 : " + twentyToSixty+
-                        "\n60~   : " + overSixty);
+        System.out.println(   " <CUSTOMER AGE STATISTIC> "+
+                "\n================"+
+                "\n1~10  : " + oneToTen +
+                "\n10~20 : " + tenToTwenty+
+                "\n20~60 : " + twentyToSixty+
+                "\n60~   : " + overSixty);
     }
+
 
 }
 
