@@ -70,17 +70,6 @@ public class CustomerManager {
                     break;
                 }
 
-//                    System.out.print("Enter new name : ");
-//                    String newName = new Scanner(System.in).nextLine();
-//                    //validating user input (String and white space only)
-//                  //  boolean isValid = InputValidator.getInstance().validateName(newName);
-//
-//                    //if(isValid==true){
-//                        customer.setName(newName);
-////                    }else{
-////                        System.out.println("Invalid Name!");
-////                    }
-//
                 case "dob": {
                     System.out.print("Enter new date of birth(dd-MMM-yyyy) : ");
 
@@ -171,13 +160,6 @@ public class CustomerManager {
     public void askUserForDelete(){
     }
 
-//    public boolean deleteCustomer(String customerId) {
-//        Customer customer = getCustomerById(customerId);
-//        if (customer == null) {
-//            return false;
-//        } else
-//            return customers.remove(customer);
-//    }
 
     public boolean deleteCustomer(String customerId) {
         Customer customer = getCustomerById(customerId);
@@ -194,6 +176,7 @@ public class CustomerManager {
         }
         return customers.remove(customer);
     }
+
     //Method to print Customers to file and console by using an array to store data.
     public Customer printAllCustomers() throws IOException {
         try{

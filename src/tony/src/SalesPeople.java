@@ -146,23 +146,6 @@ public class SalesPeople {
         return new Scanner(System.in).nextLine();
     }
 
-//    private Date updateInfoPrompt(Date updateTargetDate){
-//        System.out.print("Type new " + updateTargetDate + " to update : ");
-//        return new Scanner(System.in).next();
-//    }
-
-//    public void
-//    printAllInteractions(){
-//
-//        for (int i = 0; i < interactions.size(); i++) {
-//            System.out.println(interactions.get(i));
-//
-//        }
-//        if(interactions.size()==0){
-//            System.out.println("The sales people list is empty.");
-//        }
-//    }
-
     //printing out interactions from the arraylist  <Interaction>
     public void printAllInteractions() throws IOException {
         try {
@@ -181,9 +164,6 @@ public class SalesPeople {
     }
 
     public void reportCustomerPotential() throws ParseException {
-//        Date date = new Date();
-//        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-//        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Input the start date(dd-MM-yyyy): ");
         String startDate = new Scanner(System.in).nextLine();
@@ -200,45 +180,77 @@ public class SalesPeople {
         for (int i = 0; i < interactions.size(); i++) {
             Date doiDate = interactions.get(i).getDateOfInteractionInDate();
 
-            boolean isBetweenStrAndEnd = ((doiDate.after(date1)) && (doiDate.before(date2)));
-         //   boolean isBetweenStrAndEnd = true;
+            //  boolean isBetweenStrAndEnd = ((doiDate.after(date1)) && (doiDate.before(date2)));
+            boolean isBetweenStrAndEnd = true;
             if (isBetweenStrAndEnd) {
-                if (interactions.get(i).getPotential().equals("P") ) {
-                    P+=1;
+                if (interactions.get(i).getPotential().equals("P")) {
+                    P += 1;
                 }
                 if (interactions.get(i).getPotential().equals("NEU")) {
-                    Neu+=1;
+                    Neu += 1;
                 }
                 if (interactions.get(i).getPotential().equals("NEG")) {
-                    Neg+=1;
+                    Neg += 1;
                 }
             }
 
 
         }
 
-        System.out.println("Start Date : "+ startDate +
-                           "\nEnd Date : " + endDate+
-                "\n================================== "+
-                        "\n<Potential>"+
-                "\nPositive : " + P+
-                "\nNegative : " + Neg+
+        System.out.println("Start Date : " + startDate +
+                "\nEnd Date : " + endDate +
+                "\n================================== " +
+                "\n<Potential>" +
+                "\nPositive : " + P +
+                "\nNegative : " + Neg +
                 "\nNeutral : " + Neu);
 
     }
 
 
-public void reportInteraction() throws ParseException{
-    System.out.println("Input the start date(dd-MM-yyyy): ");
-    String startDate = new Scanner(System.in).nextLine();
-    Date date1 = new SimpleDateFormat("dd-MM-yyyy").parse(startDate);
+    public void reportInteraction() throws ParseException {
+        System.out.println("Input the start date(dd-MM-yyyy): ");
+        String startDate = new Scanner(System.in).nextLine();
+        Date date1 = new SimpleDateFormat("dd-MM-yyyy").parse(startDate);
 
-    System.out.println("Input the end date(dd-MM-yyyy): ");
-    String endDate = new Scanner(System.in).nextLine();
-    Date date2 = new SimpleDateFormat("dd-MM-yyyy").parse(endDate);
+        System.out.println("Input the end date(dd-MM-yyyy): ");
+        String endDate = new Scanner(System.in).nextLine();
+        Date date2 = new SimpleDateFormat("dd-MM-yyyy").parse(endDate);
 
+        int Jan2020 = 0;
+        int Feb2020 = 0;
+        int Mar2020 = 0;
+        int Apr2020 = 0;
+        int May2020 = 0;
+        int Jun2020 = 0;
+        int Jul2020 = 0;
+        int Aug2020 = 0;
+        int Sep2020 = 0;
+        try {
+            for (int i = 0; i < interactions.size(); i++) {
+                Date doiDate = interactions.get(i).getDateOfInteractionInDate();
+                boolean isInRange = doiDate.before(date1) && doiDate.after(date2);
+                //boolean isBetweenStrAndEnd = ((doiDate.after(date1)) && (doiDate.before(date2)));
+                boolean isBetweenStrAndEnd = true;
+                if (isBetweenStrAndEnd) {
+                    if (isInRange) {
+                        Jan2020 += 1;
+                    }
+                    if (isInRange) {
+                        Feb2020 += 1;
+                    }
+                    if (isInRange) {
+                        Mar2020 += 1;
+                    }
+                }
+                System.out.println("Jan/2020 : " + Jan2020
+                        + "\nFeb/2020 : " + Feb2020
+                        + "\nMarch / 2020 : " + Mar2020
+                );
+            }
+        } catch (NullPointerException e) {
+            System.out.println("something wrong try it again. ");
 
+        }
+    }
 }
-
-}
-

@@ -87,17 +87,7 @@ public class InputValidator {
 
 
     public boolean validatePotential(String potential) {
-//        if (method == "P") {
-//            System.out.println("Your method have been changed successfully.");
-//            if (method == "NEU") {
-//                if (method == "NEG") {
-//                    System.out.println("Your method have been changed successfully.");
-//                } else{
-//                    System.out.println("wrong input!");
-//                }
-//            }
-//        }
-//        return true;
+
 
         if (potential.matches("P|NEU|NEG")){
             return true;
